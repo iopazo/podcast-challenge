@@ -1,18 +1,18 @@
-import Container from '@/components/Container'
-import EpisodeEntry from '@/components/EpisodeEntry'
-import Head from 'next/head'
+import Container from '@/components/Container';
+import EpisodeEntry from '@/components/EpisodeEntry';
 
 const episodes = [
   {
     id: 1,
     title: 'Episode 1: The Unabomber',
-    description: 'The Unabomber is a misunderstood genius who was trying to save the world from technology.',
+    description:
+      'The Unabomber is a misunderstood genius who was trying to save the world from technology.',
     published: '2021-01-01',
     audio: {
       src: '/audio/episode-1.mp3',
       type: 'audio/mpeg',
     },
-  }
+  },
 ];
 
 export default function Podcaster() {
@@ -31,5 +31,5 @@ export default function Podcaster() {
         </div>
       </div>
     </>
-  )
+  );
 }

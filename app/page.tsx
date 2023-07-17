@@ -4,7 +4,7 @@ import Entry from '@/components/Entry';
 import { useAppContext } from '@/context/AppContext';
 import EntryInterface from '@/interfaces/EntryInterface';
 import Head from 'next/head';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [entries, setEntries] = useState<EntryInterface[]>([]);

@@ -17,7 +17,7 @@ export default function Home() {
       await getData();
     }
     fetchEntries();
-  }, []);
+  });
 
   useEffect(() => {
     setFilteredEntries(entries);

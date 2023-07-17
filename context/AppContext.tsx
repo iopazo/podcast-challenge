@@ -23,9 +23,8 @@ export function AppWrapper({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
   useEffect(() => {
-    localStorage.getItem('state', JSON.stringify(state));
     const jsonState = localStorage.getItem('state')
-      ? JSON.parse(localStorage.getItem('state'))
+      ? JSON.parse(localStorage.getItem('state') || '')
       : null;
     if (jsonState) {
       dispatch({

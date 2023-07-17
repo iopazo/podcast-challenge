@@ -18,7 +18,7 @@ export default function Podcaster() {
     }
 
     fetchPodcaster();
-  }, []);
+  });
 
   const getEncodeURL = (url: string) => {
     return encodeURIComponent(url);
@@ -135,7 +135,7 @@ export default function Podcaster() {
                           {episode.title}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                          {episode.releaseDate || ''}
+                          {episode?.releaseDate}
                         </td>
                         <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                           {millisToMinutesAndSeconds(episode.duration)}

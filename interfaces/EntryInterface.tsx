@@ -4,7 +4,7 @@ export default interface EntryInterface {
   artist: string;
   imageUrl: string;
   title?: string;
-  releaseDate?: Date;
+  releaseDate?: string;
   duration: number;
   trackId?: number;
 }

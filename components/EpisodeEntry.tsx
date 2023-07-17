@@ -30,7 +30,6 @@ function EpisodeEntry({ episode }: EpisodeEntryProps) {
     }),
     [episode],
   );
-  // let player = useAudioPlayer(audioPlayerData)
 
   return (
     <article

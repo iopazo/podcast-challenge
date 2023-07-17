@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import Container from './Container';
 import Link from 'next/link';
+import Image from 'next/image';
 
 interface AudioPlayerData {
   src: string;
@@ -38,6 +39,14 @@ function EpisodeEntry({ episode }: EpisodeEntryProps) {
     >
       <Container>
         <div className="flex flex-col items-start">
+          <Image
+            className="h-56 w-56 rounded-full"
+            src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f2/21/fa/f221fabd-017f-5125-633b-f1fe4f39802a/mza_182995249085044287.jpg/170x170bb.png"
+            alt="person image"
+            width={224}
+            height={224}
+            priority
+          />
           <h2
             id={`episode-${episode.id}-title`}
             className="mt-2 text-lg font-bold text-slate-900"

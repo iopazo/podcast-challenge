@@ -10,6 +10,7 @@ export default function Home() {
   const [entries, setEntries] = useState<EntryInterface[]>([]);
   const [filteredEntries, setFilteredEntries] = useState<EntryInterface[]>([]);
   const { state, dispatch } = useAppContext();
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchEntries() {
@@ -25,9 +26,11 @@ export default function Home() {
   async function getData() {
     if (state.stored) {
       setEntries(state.entries);
+      setLoading(false);
     } else {
       const res = await fetch(process.env.NEXT_PUBLIC_URL_ITUNES_ENTRIES || '');
       if (!res.ok) {
+        setLoading(false);
         throw new Error('Failed to fetch data');
       }
       let data = await res.json();
@@ -42,6 +45,7 @@ export default function Home() {
       setEntries(entries);
       dispatch({ type: 'setStored', value: true });
       dispatch({ type: 'setEntries', value: entries });
+      setLoading(false);
     }
   }
 
@@ -92,7 +96,14 @@ export default function Home() {
                   }}
                 />
               </div>
+
               <span className="inline-flex items-center rounded-full bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 mt-2">
+                {loading && (
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                  </span>
+                )}
                 {filteredEntries.length} results
               </span>
             </div>

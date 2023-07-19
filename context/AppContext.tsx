@@ -8,10 +8,13 @@ import {
 } from 'react';
 import { AppReducer, initialState } from './AppReducer';
 import EntryInterface from '@/interfaces/EntryInterface';
+import EpisodeInterface from '@/interfaces/EpisodeInterface';
 
 type InitialStateType = {
   stored: boolean;
   entries: EntryInterface[];
+  selectedArtist: EntryInterface | null;
+  selectedEpisode: EpisodeInterface | null;
 };
 
 const AppContext = createContext<{

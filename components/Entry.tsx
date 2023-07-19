@@ -1,11 +1,14 @@
+import { useAppContext } from '@/context/AppContext';
 import EntryInterface from '@/interfaces/EntryInterface';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 function Entry({ entry }: { entry: EntryInterface }) {
   const router = useRouter();
+  const { dispatch } = useAppContext();
 
   const navigateToPodcaster = (id: string) => () => {
+    dispatch({ type: 'setSelectedArtist', value: entry });
     router.push(`/podcaster/${id}`);
   };
   return (

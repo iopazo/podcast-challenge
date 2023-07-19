@@ -1,6 +1,8 @@
 export const initialState = {
   stored: false,
   entries: [],
+  selectedArtist: null,
+  selectedEpisode: null,
 };
 
 interface ActionInterface {
@@ -23,6 +25,18 @@ export const AppReducer = (state: Object, action: ActionInterface) => {
       return {
         ...state,
         entries: action.value,
+      };
+    }
+    case 'setSelectedArtist': {
+      return {
+        ...state,
+        selectedArtist: action.value,
+      };
+    }
+    case 'setSelectedEpisode': {
+      return {
+        ...state,
+        selectedEpisode: action.value,
       };
     }
     default:

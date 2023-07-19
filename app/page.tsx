@@ -1,5 +1,4 @@
 'use client';
-import Container from '@/components/Container';
 import Entry from '@/components/Entry';
 import { useAppContext } from '@/context/AppContext';
 import EntryInterface from '@/interfaces/EntryInterface';
@@ -40,6 +39,7 @@ export default function Home() {
           name: entry['im:name'].label,
           artist: entry['im:artist'].label,
           imageUrl: entry['im:image'][2].label,
+          summary: entry.summary.label,
         };
       });
       setEntries(entries);
@@ -76,11 +76,6 @@ export default function Home() {
         />
       </Head>
       <div className="pb-12 pt-16 sm:pb-4 lg:pt-12">
-        <Container>
-          <h1 className="text-2xl font-bold leading-7 text-slate-900">
-            Podcaster
-          </h1>
-        </Container>
         <div className="bg-white py-32">
           <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
             <div className="mx-auto max-w-2xl">

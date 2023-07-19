@@ -7,4 +7,5 @@ export default interface EntryInterface {
   releaseDate?: string;
   duration: number;
   trackId?: number;
+  summary?: string;
 }
